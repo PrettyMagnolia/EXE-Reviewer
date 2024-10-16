@@ -123,7 +123,7 @@ def eval_epoch_bleu(args, eval_dataloader, model, tokenizer):
 
     if args.generate_focus:
         # write focus info to file
-        with open(os.path.join(args.output_dir, args.focus_file_name), "w", encoding="utf-8") as f:
+        with open(os.path.join(args.output_dir, "focus.txt"), "w", encoding="utf-8") as f:
             for focus in focuses:
                 f.write(','.join(focus) + '\n')
 

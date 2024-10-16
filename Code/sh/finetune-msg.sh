@@ -14,19 +14,20 @@ NCCL_DEBUG=INFO
 
 
 # Change the arguments as required:
-#   model_name_or_path, load_model_path: the path of the model to be finetuned
-#   eval_file: the path of the evaluation data
-#   output_dir: the directory to save finetuned model (not used at infer/test time)
-#   out_file: the path of the output file
-#   train_filename: can be a directory contraining files named with "train*.jsonl"
-#   raw_input: to select the preprocess method, set to True in this task
+#   model_name_or_path: the path of the model to be finetuned (CodeReviewer Model)
+#   train_filename: the path of the training file (after preprocess)
+#   dev_filename: the path of the development file (after preprocess)
+#   output_dir: the directory to save finetuned model
+#   focus_len: the length of the focuses (equal to the interface script)
+#   causal_seq_model_path: the path of the causal model for sequence
+#   causal_tok_model_path: the path of the causal model for token
 
 python -m torch.distributed.launch --nproc_per_node ${PER_NODE_GPU} --node_rank=${RANK} --nnodes=${NODES} --master_addr=${MASTER_HOST} --master_port=${MASTER_PORT} ../run_finetune_msg_explain.py  \
     --train_epochs 30 \
-    --model_name_or_path "/data/lyf/code/Code_Reviewer/3_Pretrained_Model" \
-    --output_dir "/data/lyf/code/Code_Reviewer/0_Result" \
-    --train_filename "/data/lyf/code/Code_Reviewer/2_Dataset/Comment_Generation/msg-train-focus-label-explain.jsonl" \
-    --dev_filename "/data/lyf/code/Code_Reviewer/2_Dataset/Comment_Generation/msg-valid.jsonl" \
+    --model_name_or_path microsoft/codereviewer \
+    --output_dir ../../save/gen \
+    --train_filename msg-train-preprocess.jsonl \
+    --dev_filename msg-valid-preprocess.jsonl \
     --max_source_length 512 \
     --max_target_length 128 \
     --train_batch_size 6 \
@@ -44,5 +45,5 @@ python -m torch.distributed.launch --nproc_per_node ${PER_NODE_GPU} --node_rank=
     --has_focus \
     --focus_len 10 \
     --has_explain \
-    --causal_seq_model_path causal_seq_model_path \
-    --causal_tok_model_path causal_tok_model_path \
+    --causal_seq_model_path ../model/unicausal-seq-baseline \
+    --causal_tok_model_path ../model/unicausal-tok-baseline \
