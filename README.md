@@ -79,3 +79,12 @@ Use the above command to calculate the metrics.
 - explainable metrics: ERCR, HC-ERCR
 
 ## Licensing Information
+
+[![License](https://i.creativecommons.org/l/by-nc-sa/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
+<br/>
+This work is licensed under a [Creative Commons CC0 1.0 Universal (CC0 1.0)
+Public Domain Dedication License](https://creativecommons.org/publicdomain/zero/1.0/).
+
+---
+
+> Something not working as expected? Create an issue [here](https://github.com/PrettyMagnolia/EXE-Reviewer/issues).
