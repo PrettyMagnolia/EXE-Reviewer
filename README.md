@@ -22,7 +22,7 @@ EXE-Reviewer: Towards EXplainable and Effective Review Comments Generation
 ├── sh/                           # Shell scripts
 │   ├── calc_metrics.sh           # Script to calculate metrics
 │   ├── finetune-msg.sh           # Script to run fine-tuning
-│   ├── interface-msg.sh          # Interface script
+│   ├── inference-msg.sh          # Interface script
 │   └── test-msg.sh               # Script to run tests
 ├── total_eval.py                 # Aggregated evaluation script
 └── utils.py                      # General utility functions
@@ -43,14 +43,14 @@ pip install -r requirements.txt
 
 See the `Dataset` and `Model` directories for details.
 
-### Interface
+### Inference
 
-The interface stage is to use code-pretrained model to generate model focuses.
+The inference stage is to use code-pretrained model to generate model focuses.
 
 ```shell
 cd Code/sh
 # adjust the arguments in the *sh* scripts
-bash interface-msg.sh
+bash inference-msg.sh
 ```
 
 ### Train
