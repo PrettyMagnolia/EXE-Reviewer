@@ -16,4 +16,6 @@ See the repository of [T5-Reviewer](https://github.com/CodeReviewAutomation/code
 
 The pre-trained checkpoint of CodeReviewer is available in [Huggingface](https://huggingface.co/microsoft/codereviewer).
 
+### Causality Model
 
+We use the UniCausal as the causality model, the causality classification model and causality span extraction model is available in [seq_model](https://huggingface.co/tanfiona/unicausal-seq-baseline) and [tok_model](https://huggingface.co/tanfiona/unicausal-tok-baseline).
